@@ -1,129 +1,28 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+dados = list()
+while True:
+    nome = str(input('Nome do aluno: '))
+    nota1 = float(input('Digite a 1ª nota: '))
+    nota2 = float(input('Digite a 2ª nota: '))
+    media = (nota1 + nota2) / 2
+    dados.append([nome, [nota1, nota2], media])
+    print('-=' * 40)
+    resp = ' '
+    while resp not in 'SN':
+        resp = str(input('Quer continuar? [S/N]: ')).strip().upper()
+    if resp == 'N':
+        break
+for i, d in enumerate(dados):
+    print(f'>>>> Na posição {i}, temos o aluno {d[0]}, que teve sua média {d[2]}.')
+while True:
+    notas = int(input('Quer ver as notas de qual aluno? [Digite 999 para finalizar o programa]: '))
+    if notas == 999:
+        print('FINALIZANDO...')
+        break
+    if notas <= len(dados) - 1:
+        print(f'Notas de {dados[notas][0]} são {dados[notas][2]}')
+print('Volte Sempre!')
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+#Exercício Python 089:
+# Crie um programa que leia nome e duas notas de vários alunos e guarde tudo em uma lista composta.
+#No final, mostre um boletim contendo a média de cada um e permita que o usuário possa mostrar as
+#notas de cada aluno individualmente.
